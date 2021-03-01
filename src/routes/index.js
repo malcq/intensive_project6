@@ -2,12 +2,12 @@ import React, {Suspense, memo } from 'react';
 import {
   Switch,
   Route,
-} from "react-router-dom";
+} from 'react-router-dom';
 
-const BarMap = React.lazy(() => import('../pages/BarMap'));
-const Calendar = React.lazy(() => import('Pages/Calendar'));
-const Recipes = React.lazy(() => import('Pages/Recipes'));
-const Main = React.lazy(() => import('Pages/Main'));
+const BarMap = React.lazy(() => import('@pages/BarCard'));
+const Calendar = React.lazy(() => import('@pages/Calendar'));
+const Recipes = React.lazy(() => import('@pages/Recipes'));
+const Main = React.lazy(() => import('@pages/Main'));
 
 const AppRoutes = () => (
   <Suspense fallback={<div>Загрузка...</div>}>
@@ -24,7 +24,7 @@ const AppRoutes = () => (
  
 const routes = [
   {
-    path: '/barmap',
+    path: '/barcard',
     exact: true,
     component: BarMap
   },
