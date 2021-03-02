@@ -4,7 +4,7 @@ import {
   Route,
 } from 'react-router-dom';
 
-const BarMap = React.lazy(() => import('@pages/BarCard'));
+const BarCard = React.lazy(() => import('@pages/BarCard'));
 const Calendar = React.lazy(() => import('@pages/Calendar'));
 const Recipes = React.lazy(() => import('@pages/Recipes'));
 const Main = React.lazy(() => import('@pages/Main'));
@@ -26,7 +26,7 @@ const routes = [
   {
     path: '/barcard',
     exact: true,
-    component: BarMap
+    component: BarCard
   },
   {
     path: '/calendar',

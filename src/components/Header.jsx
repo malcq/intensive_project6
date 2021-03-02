@@ -33,10 +33,10 @@ const Header = () => {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
-            <Link to="/">Home</Link>
-            <Link to="/barcard">Bar card</Link>
-            <Link to="/recipes">Recipes</Link>
-            <Link to="/calendar">Calendar</Link>
+            <Link to="/">Главная</Link>
+            <Link to="/barcard">Бар карта</Link>
+            <Link to="/recipes">Рецепты</Link>
+            <Link to="/calendar">Календарь</Link>
           </Typography>          
         </Toolbar>
       </AppBar>
