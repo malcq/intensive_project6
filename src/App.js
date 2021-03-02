@@ -1,6 +1,10 @@
-
+import AppRoutes from './routes';
+import Header from './components/Header';
 
 const App = () => (
-  <div className="App">app page</div>
+  <>
+    <Header />
+    <AppRoutes />
+  </>
 );
 export default App;
