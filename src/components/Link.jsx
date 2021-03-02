@@ -4,7 +4,7 @@ import Link from '@material-ui/core/Link';
 
 const SLink = ({to, children}) => (
   <Link
-    color='white'
+    color='inherit'
     component={RouterLink}
     to={to}
   >
