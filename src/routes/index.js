@@ -15,7 +15,7 @@ const AppRoutes = () => (
       {routes.map((router) => (
         <Route
           key={router.path}
-          {...router}
+          { ...router }
         />
       ))} 
     </Switch>
@@ -25,8 +25,7 @@ const AppRoutes = () => (
 const routes = [
   {
     path: '/barcard',
-    exact: true,
-    component: BarCard
+    component: BarCard,
   },
   {
     path: '/calendar',
