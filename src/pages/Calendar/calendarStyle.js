@@ -21,6 +21,9 @@ const useStyles = makeStyles({
     color: '#000',
     textTransform: 'none',
   },
+  calendarMenu: {
+    marginBottom: '20px',
+  },
   menuButton: {
     backgroundColor: '#c4c4c4',
     width: '170px',
@@ -49,6 +52,12 @@ const useStyles = makeStyles({
     lineHeight: '16px',
     color: '#000',
     textTransform: 'none',
+  },
+  days: {
+    display: 'flex',
+
+    flexWrap: 'wrap',
+    width: '350px',
   },
 });
 
