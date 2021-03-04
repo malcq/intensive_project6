@@ -1,34 +1,26 @@
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
-import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Card from '@material-ui/core/Card';
+import ButtonGroup from '@material-ui/core/ButtonGroup';
 import styled from 'styled-components';
 
 export const SCard = styled(Card)`
-  width: 50%;
-  height: 600px;
-  position: absolute;
-  top: 202px;
-  right: 15px;
-`;
-
-export const SimplePage = styled(Paper)`
-  && { box-shadow: unset}
-  display: flex;
-  justify-content: space-between;
+  && {
+      margin: 10px auto;
+      max-width: 500px;
+      flex: 1;
+      background-color: #fafafa;
+    }
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 `;
 
 export const SPage = styled(Paper)`
   && { 
     box-shadow: unset;
     border-radius: unset;
-    };
-`;
-
-export const SubPage = styled(Paper)`
-  && { background-color: #fafafa;}
-  width: 45%;
-  padding: 10px 10px 1px;
+  };
 `;
 
 export const PageTitle = styled(Typography)`

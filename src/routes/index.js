@@ -1,13 +1,13 @@
 import React, {Suspense, memo } from 'react';
-import {
-  Switch,
-  Route,
-} from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
+import Paper from '@material-ui/core/Paper';
+import styled from 'styled-components';
 
 
 const BarCard = React.lazy(() => import('@pages/BarCard'));
 const BarCardList = React.lazy(() => import('@pages/BarCard/BarCardList'));
 const BarCardResult = React.lazy(() => import('@pages/BarCard/BarCardResult'));
+const BarCardRecipes = React.lazy(() => import('@pages/BarCard/BarCardRecipes'));
 const Beverage = React.lazy(() => import('@pages/BarCard/Beverage'));
 const Calendar = React.lazy(() => import('@pages/Calendar'));
 const Recipes = React.lazy(() => import('@pages/Recipes'));
@@ -22,14 +22,21 @@ const AppRoutes = () => (
           path={router.path}
         >
           <Route {...router} />
-          {subRoutes.map((subRoute) => 
-            <Route key={subRoute.path} {...subRoute} />)
-          }
+          <SPaper component='section'>
+            {subRoutes.map((subRoute) => 
+              <Route key={subRoute.path} {...subRoute} />)
+            }
+          </SPaper> 
         </Route>
       ))}
     </Switch>
   </Suspense>
   );
+
+const SPaper = styled(Paper)`
+  &&{box-shadow: unset;}
+  display: flex;
+`;
  
 const routes = [
   {
@@ -44,6 +51,11 @@ const routes = [
         exact: true,
         path: '/barcard/list/:id',
         component: Beverage,
+      },
+      {
+        exact: true,
+        path: '/barcard/list/:id/recipes',
+        component: BarCardRecipes,
       },
       {
         exact: true,

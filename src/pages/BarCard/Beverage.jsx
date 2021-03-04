@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
+import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import styled from 'styled-components';
 
-import { SCard } from '@styles';
 import BarForm from '@components/BarForm';
+import {Text, SubText, LargeText, MediumText } from '@styles/card';
+import {SCard } from '@styles';
+
 import data from '@mocks';
 
 
@@ -31,28 +34,28 @@ const Beverage = () => {
         <SCardContent component='div'>
        
         <CardUpper component='div'>
-          <MainText component='p'>
-            {category}
-          </MainText>
           <SubText component='p'>
-            {id}
+            {category}
           </SubText>
+          <Text component='p'>
+            {id}
+          </Text>
         </CardUpper>
         <CardTitle variant='h5' component='h5'>
           {title}
         </CardTitle>
         <CardVolume component='p'>
-          <SubText component='span'>
+          <Text component='span'>
             объем
-          </SubText>
+          </Text>
           <LargeText component='span'>
             {volume}л
           </LargeText>
         </CardVolume>
         
-        <MainText component='p'>
+        <SubText component='p'>
           {full_descr} 
-        </MainText>
+        </SubText>
        
         </SCardContent>
       </UpperContent>
@@ -64,25 +67,38 @@ const Beverage = () => {
           "{measurement}" {capacity * 100}%
         </MediumText>
       </LowerContent>
+      
       <Panel component='div'>
         {!choice
         ?
           <>
-            <SButton variant='contained'>Рецепты</SButton>
-            <SButton variant='contained' onClick={toggleChoice}>Достать из бара</SButton>
+            <SButton 
+              variant='contained'
+              component={Link}
+              to={`/barcard/list/${id}/recipes`}
+            >
+              Рецепты
+            </SButton>
+            <SButton
+              variant='contained'
+              onClick={toggleChoice}
+            >
+              Достать из бара
+            </SButton>
           </>
         :
           <BarForm onCancel={toggleChoice} id={id} />
         }
+        
       </Panel>
   </SCard>);
 };
+
 const Panel = styled(Typography)`
   && {
     display: flex;
     flex-direction: column;
-    max-width: 65%;
-    margin: 10px auto;
+    margin: 0 20px;
   }
 `;
 
@@ -91,10 +107,9 @@ const UpperContent = styled(Typography)`
   display: flex;
 `;
 const LowerContent = styled(Typography)`
-  && {margin: 10px auto}
+  && {margin: 20px;}
   display: flex;
   justify-content: space-between;
-  width: 50%;
 `;
 
 const CardUpper = styled(Typography)`
@@ -102,22 +117,6 @@ const CardUpper = styled(Typography)`
     display: flex;
     justify-content: space-between;
   }
-`;
-
-const MainText = styled(Typography)`
-  && {font-size: .875rem;}
-`;
-
-const SubText = styled(Typography)`
-  && {font-size: 1.125rem;}
-`;
-
-const MediumText = styled(Typography)`
-  && {font-size: 1.5rem;}
-`;
-
-const LargeText = styled(Typography)`
-  && {font-size: 2.25rem;}
 `;
 
 const CardTitle = styled(Typography)`
@@ -146,7 +145,11 @@ const SCardMedia = styled(CardMedia)`
   max-width: 160px;
 `;
 
-const SButton = styled(Button)`
-  && {margin: 5px 0;}
+const SButton= styled(Button)`
+  &&{
+    margin-bottom: 10px;
+  }
+ 
 `;
+
 export default Beverage;

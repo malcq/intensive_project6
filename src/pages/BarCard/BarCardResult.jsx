@@ -1,11 +1,12 @@
 import { useParams, Link } from 'react-router-dom';
-import Card from '@material-ui/core/Card';
-import Typography from '@material-ui/core/Typography';
 import CardContent from '@material-ui/core/CardContent';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import Button from '@material-ui/core/Button';
 import styled from 'styled-components';
+
+import {Content, MediumText, Text, LargeText } from '@styles/card';
+import {SCard} from '@styles';
 
 import data from '@mocks';
 
@@ -59,39 +60,16 @@ const curBeverage = beveragesList.find(({id}) => activeId === id);
   );
 };
 
-const SCard = styled(Card)`
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-  height: 600px;
-  position: absolute;
-  top: 202px;
-  right: 15px;
-`;
 const SButton = styled(Button)`
-&&{display: block;margin: auto auto 10px;}
-width: 70%;
-
-`;
-const Content = styled(Typography)`
-  && {margin: 5px 0};
-  display: flex;
-  justify-content: space-between;
-`;
-
-const Text = styled(Typography)`
-  && {font-size: 1.125rem;}
-`;
-
-const MediumText = styled(Typography)`
-  && {font-size: 1.5rem;}
-`;
-
-const LargeText = styled(Typography)`
-  && {font-size: 2.25rem;}
+  &&{
+    display: block;
+    margin: auto auto 10px;
+  }
+  width: 70%;
 `;
 
 const SCardContent = styled(CardContent)`
-&& {padding-bottom: 0}
+  && {padding-bottom: 0}
 `;
+
 export default BarCardResult;

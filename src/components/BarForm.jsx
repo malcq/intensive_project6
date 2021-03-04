@@ -22,17 +22,23 @@ const BarForm = ({ onCancel, id }) => {
       </STypography>
       
       <SButtonGroup>
-        <Button variant='contained' onClick={onCancel}>Отменить</Button>
-        <Button variant='contained' component={Link} to={`/barcard/list/${id}/result`}>Сохранить</Button>
+        <SButton variant='contained' onClick={onCancel}>Отменить</SButton>
+        <SButton variant='contained' component={Link} to={`/barcard/list/${id}/result`}>Сохранить</SButton>
       </SButtonGroup>
     </Typography>
   );
 };
 
 const STypography = styled(Typography)`
-&&{ margin-bottom: 10px;}
+  &&{ padding-bottom: 10px;}
   display: flex;
   justify-content: space-between;
+`;
+
+const SButton = styled(Button)`
+  && {
+    margin-bottom: 10px;
+  }
 `;
 
 export default BarForm;

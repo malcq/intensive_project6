@@ -46,7 +46,7 @@ const Beverage = ({
 };
 
 const SCard = styled(Card)`
-  margin: 10px 0;
+  margin-top: 10px;
 `;
 
 const CardUpper = styled(Typography)`
