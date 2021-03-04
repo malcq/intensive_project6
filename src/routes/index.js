@@ -1,11 +1,8 @@
-import React, {Suspense, memo } from 'react';
-import {
-  Switch,
-  Route,
-} from 'react-router-dom';
+import React, { Suspense, memo } from 'react';
+import { Switch, Route } from 'react-router-dom';
 
 const BarCard = React.lazy(() => import('@pages/BarCard'));
-const Calendar = React.lazy(() => import('@pages/Calendar'));
+const Calendar = React.lazy(() => import('@pages/Calendar/Calendar.js'));
 const Recipes = React.lazy(() => import('@pages/Recipes'));
 const Main = React.lazy(() => import('@pages/Main'));
 
@@ -13,36 +10,33 @@ const AppRoutes = () => (
   <Suspense fallback={<div>Загрузка...</div>}>
     <Switch>
       {routes.map((router) => (
-        <Route
-          key={router.path}
-          {...router}
-        />
-      ))} 
+        <Route key={router.path} {...router} />
+      ))}
     </Switch>
   </Suspense>
-  );
- 
+);
+
 const routes = [
   {
     path: '/barcard',
     exact: true,
-    component: BarCard
+    component: BarCard,
   },
   {
     path: '/calendar',
     exact: true,
-    component: Calendar
+    component: Calendar,
   },
   {
     path: '/recipes',
     exact: true,
-    component: Recipes
+    component: Recipes,
   },
   {
     path: '/',
     exact: true,
-    component: Main
-  }
+    component: Main,
+  },
 ];
 
 export default memo(AppRoutes);
