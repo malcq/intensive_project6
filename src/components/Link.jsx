@@ -1,20 +1,37 @@
 import { Link as RouterLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Link from '@material-ui/core/Link';
+import styled from 'styled-components';
 
-const SLink = ({to, children}) => (
-  <Link
-    color='inherit'
+const CustomLink = ({to, children}) => (
+  <SLink
     component={RouterLink}
     to={to}
   >
     {children}
-  </Link>
+  </SLink>
 );
 
-SLink.propTypes ={ 
+CustomLink.propTypes ={ 
   to: PropTypes.string,
   children: PropTypes.node,
 };
 
-export default SLink;
+const SLink = styled(Link)`
+  && {
+    color: inherit;
+    &:hover {
+      text-decoration: none;
+    }
+  } 
+  font-size: 1.25rem;
+  @media only screen and (max-width: 576px) {
+    font-size: 1rem;
+    width: 100%;
+  }
+  @media only screen and (max-width: 420px) {
+    font-size: .7rem;
+  }
+`;
+
+export default CustomLink;

@@ -1,5 +1,12 @@
+import { SPage, PageTitle } from '@styles';
+
+
 const Main = () => (
-  <div>Main page</div>
+  <SPage component='main'>
+    <PageTitle variant='h1'>
+      Main page
+    </PageTitle>
+  </SPage>
 );
 
 export default Main;
