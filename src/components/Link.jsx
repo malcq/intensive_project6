@@ -20,6 +20,9 @@ CustomLink.propTypes ={
 const SLink = styled(Link)`
   && {
     color: inherit;
+    &:hover {
+      text-decoration: none;
+    }
   } 
   font-size: 1.25rem;
   @media only screen and (max-width: 576px) {

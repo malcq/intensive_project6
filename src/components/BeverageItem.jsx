@@ -7,39 +7,43 @@ import styled from 'styled-components';
 
 const Beverage = ({
   id, url, title, description, capacity,
-  volume, category, measurement
-}) => (
-  <SCard>
+  volume, category, measurement,
+  onBeverageClick
+}) => {
+  const onClick = () => onBeverageClick(id);
+
+  return (
+  <SCard onClick={onClick}>
     <SCardActionArea>
       <SCardMedia
         image={url}
         title={title}
       />
       <SCardContent>
-        <CardUpper component='p'>
-          <CardCategory component='span'>
+        <CardUpper component='div'>
+          <CardUpperText component='span'>
             {category}
-          </CardCategory>
-          <CardSubText component='span'>
+          </CardUpperText>
+          <CardUpperText component='span'>
             {id}
-          </CardSubText>
+          </CardUpperText>
         </CardUpper>
-        <CardTitle variant='h5' component='h2'>
+       <CardTitle variant='h5' component='h2'>
           {title}
           <CardSubText component='span'>
             {volume}
           </CardSubText>
         </CardTitle>
-        <CardSubText component='p'>
-          {description}, {capacity.toFixed(2)}%
+       <CardSubText component='p'>
+          {description}, {capacity * 100}%
         </CardSubText>
         <CardSubText component='p'>
           "{measurement}"
         </CardSubText>
       </SCardContent>
     </SCardActionArea>
-  </SCard>
-);
+  </SCard>);
+};
 
 const SCard = styled(Card)`
   margin: 10px 0;
@@ -52,7 +56,7 @@ const CardUpper = styled(Typography)`
   }
 `;
 
-const CardCategory = styled(Typography)`
+const CardUpperText = styled(Typography)`
   && {font-size: .875rem;}
 `;
 
