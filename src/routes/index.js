@@ -9,7 +9,7 @@ const BarCardList = React.lazy(() => import('@pages/BarCard/BarCardList'));
 const BarCardResult = React.lazy(() => import('@pages/BarCard/BarCardResult'));
 const BarCardRecipes = React.lazy(() => import('@pages/BarCard/BarCardRecipes'));
 const Beverage = React.lazy(() => import('@pages/BarCard/Beverage'));
-const Calendar = React.lazy(() => import('@pages/Calendar'));
+const Calendar = React.lazy(() => import('@pages/Calendar/Calendar'));
 const Recipes = React.lazy(() => import('@pages/Recipes'));
 const Main = React.lazy(() => import('@pages/Main'));
 
@@ -75,8 +75,8 @@ const routes = [
   {
     path: '/',
     exact: true,
-    component: Main
-  }
+    component: Main,
+  },
 ];
 
 export default memo(AppRoutes);
